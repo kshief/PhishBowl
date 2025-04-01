@@ -1,0 +1,47 @@
+{
+    "manifest_version": 3,
+    "name": "Phishbowl",
+    "description": "Defend against social engineering - run email message validations with this simple tool.",
+    "version": "0.1.0",
+    "permissions": [ 
+      "identity",
+      "activeTab", 
+      "scripting", 
+      "storage",
+      "tabs", 
+      "background"
+    ],
+
+    "background": {
+      "service_worker": "popup/background.js"
+    },
+
+    "host_permissions": ["https://www.virustotal.com/"],
+
+    
+    "oauth2": {
+      "client_id": "YOUR_OATH_CLIENT_ID_HERE",
+      "scopes": [
+        "https://www.googleapis.com/auth/gmail.readonly"
+      ]
+    },
+
+    "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["popup/content-scripts.js"]
+    }
+  ],
+  
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+
+    "action": {
+      "default_popup": "popup/popup.html"
+    },
+
+    "icons": {
+      "128": "imgs/logo/phishbowl.png"
+    }
+  }

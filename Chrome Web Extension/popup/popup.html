@@ -1,0 +1,95 @@
+<!-- 
+
+Written by Kashief Lika
+This is the main html code for the Chrome Extension user interface  
+
+Created: Sept 14, 2024
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Extension</title>
+    
+    <script src="/libs/nlp/compromise.js"></script>
+    <script type = "module" src= "popup.js"></script>
+
+    <link rel="stylesheet" href= "/libs/styling/popup.css" />
+</head>
+<body>
+    <div class="mainDiv"> 
+
+        <table>
+        <th><img src= "/imgs/logo/phishbowl.png" alt= "Fish in a Bowl"></th>
+        <th><h1>Phishbowl</h1></th>
+        </table>
+        
+        <hr>
+        <h3>Quick Settings</h3>
+
+        <div>
+        <label for= "grammarSetting">Grammar Check</label>
+        <label class= "switch">
+            <input type= "checkbox" id= "grammarButtonId">
+            <span class= "slider round"></span>
+        </label>
+        </div>
+
+        <br>
+        <div>
+        <label for= "sentimentSetting">Sentiment Analysis</label>
+        <label class= "switch">
+            <input type= "checkbox" id= "sentimentButtonId">
+            <span class= "slider round"></span>
+        </label>
+        </div>
+
+        <br>
+        <div>
+        <label for= "linkCheckSetting">Link Verification</label>
+        <label class= "switch">
+            <input type= "checkbox" id= "linkCheckButtonId">
+            <span class= "slider round"></span>
+        </label>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div>
+            <button id= "extractButtonId">Go Phish</button>
+            <img id= "questionMarkPNG" src= "/imgs/interfaceImages/question.png" alt= "Question Mark">
+            <div id="tooltip" class="tooltip">
+                <strong>Helpful Information:</strong><br>
+                Our score report is weighed based off of various indications of social engineering.
+                These include ARC Authentication, Grammar, Sentiment Analysis, and Link verification.
+                <br><strong>DKIM:</strong> or Domain Key Identified Mail is an email security standard that
+                uses public key cryptography to assign a private key to each email, which is then used 
+                to verify the email's source and contents.
+                <br><strong>SPF:</strong> or Sender Policy Framework helps to prevent senders from 
+                impersonation, blocking spammers and other attackers from sending email that appears 
+                to be from an organization.
+                <br><strong>DMARC:</strong> or Domain-based Message Authentication, Reporting, and Conformance,
+                is an open email authentication protocol that provides domain-level protection of the email channel.
+            </div>
+        </div>
+
+        <br>
+
+        <div>
+            <br>
+            <label for= "automaticSetting">Automatically get results</label>
+            <label class= "switch">
+                <input type= "checkbox" id= "autoButtonId">
+                <span class= "slider round"></span>
+            </label>
+        </div>
+        <br>
+        <div id="result"></div>
+        <br>
+        <div id="textResult"></div>
+    </div>
+</body>
+</html>
